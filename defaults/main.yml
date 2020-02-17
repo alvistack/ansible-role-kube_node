@@ -1,0 +1,33 @@
+---
+
+# (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Kubernetes version.
+kubernetes_version: "v1.17.3"
+
+# Token is a token used to validate cluster information fetched from the control-plane.
+kubeadm_token: ~
+
+# IP address of the node. If set, kubelet will use this IP address for the node.
+kubelet_node_ip: "{{ ansible_default_ipv4.address }}"
+
+# Optional absolute name of cgroups to create and run the runtime in.
+kubelet_runtime_cgroups: "/systemd/system.slice"
+
+# AdvertiseAddress sets the IP address for the API server to advertise.
+kube_apiserver_advertise_address: "{{ hostvars[ansible_play_hosts[0]].ansible_eth1.ipv4.address }}"
+
+# BindPort sets the secure port for the API Server to bind to.
+kube_apiserver_bind_port: "6443"
