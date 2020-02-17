@@ -49,11 +49,11 @@
       args:
         executable: "/bin/bash"
       delegate_to: "{{ groups['kube_master'][0] }}"
-      register: result
-      until: result is succeeded
-      changed_when: result is not succeeded
+      register: kube_admin_token_result
+      until: kube_admin_token_result is succeeded
+      changed_when: kube_admin_token_result is not succeeded
       ignore_errors: true
 
   roles:
     - role: kube_node
-      kubeadm_token: "{{ result.stdout }}"
+      kubeadm_token: "{{ kube_admin_token_result.stdout }}"
