@@ -26,8 +26,6 @@ kubelet_node_ip: "{{ ansible_default_ipv4.address }}"
 # Optional absolute name of cgroups to create and run the runtime in.
 kubelet_runtime_cgroups: "/systemd/system.slice"
 
-# AdvertiseAddress sets the IP address for the API server to advertise.
-kube_apiserver_advertise_address: "{{ hostvars[ansible_play_hosts[0]].ansible_eth1.ipv4.address }}"
-
-# BindPort sets the secure port for the API Server to bind to.
-kube_apiserver_bind_port: "6443"
+# APIServerEndpoint is an IP or domain name to the API server from which info
+# will be fetched.
+kube_apiserver_endpoint: ~

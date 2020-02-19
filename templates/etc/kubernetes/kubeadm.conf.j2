@@ -18,7 +18,7 @@ apiVersion: kubeadm.k8s.io/v1beta2
 kind: JoinConfiguration
 discovery:
   bootstrapToken:
-    apiServerEndpoint: {{ kube_apiserver_advertise_address }}:{{ kube_apiserver_bind_port }}
+    apiServerEndpoint: {{ kube_apiserver_endpoint }}
     token: {{ kubeadm_token }}
     unsafeSkipCAVerification: true
   tlsBootstrapToken: {{ kubeadm_token }}
