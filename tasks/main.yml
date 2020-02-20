@@ -84,21 +84,11 @@
     - { dest: "/etc/kubernetes/kubeadm.conf" }
   tags: kube_node
 
-- name: enable services
-  service:
-    name: "{{ item.name }}"
-    enabled: true
-  loop:
-    - { name: "docker" }
-    - { name: "kubelet" }
-  changed_when: false
-  ignore_errors: true
-  tags: kube_node
-
 - name: start services
   service:
     name: "{{ item.name }}"
     state: "started"
+    enabled: true
   loop:
     - { name: "docker" }
     - { name: "kubelet" }
