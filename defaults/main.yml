@@ -27,10 +27,10 @@ kubelet_node_ip: "{{ ansible_default_ipv4.address }}"
 kubelet_runtime_cgroups: "/systemd/system.slice"
 
 # The container runtime to use.
-kubelet_container_runtime: "docker"
+kubelet_container_runtime: "remote"
 
 # The endpoint of remote runtime service.
-kubelet_container_runtime_endpoint: "/var/run/dockershim.sock"
+kubelet_container_runtime_endpoint: "/var/run/crio/crio.sock"
 
 # APIServerEndpoint is an IP or domain name to the API server from which info
 # will be fetched.
