@@ -20,9 +20,9 @@
   roles:
     - role: bootstrap
     - role: python
-    - role: docker
+    - role: cni_plugins
     - role: cri_tools
-    - role: kubernetes_cni
+    - role: docker
     - role: kubectl
     - role: kubelet
     - role: kubeadm

@@ -18,14 +18,16 @@ apiVersion: kubeadm.k8s.io/v1beta2
 kind: JoinConfiguration
 discovery:
   bootstrapToken:
-    apiServerEndpoint: {{ kube_apiserver_advertise_address }}:{{ kube_apiserver_bind_port }}
+    apiServerEndpoint: {{ kube_apiserver_endpoint }}
     token: {{ kubeadm_token }}
     unsafeSkipCAVerification: true
   tlsBootstrapToken: {{ kubeadm_token }}
 nodeRegistration:
   name: {{ ansible_hostname }}
-  criSocket: /var/run/dockershim.sock
+  criSocket: {{ kubelet_container_runtime_endpoint }}
   taints: []
   kubeletExtraArgs:
     node-ip: {{ kubelet_node_ip }}
     runtime-cgroups: {{ kubelet_runtime_cgroups }}
+    container-runtime: {{ kubelet_container_runtime }}
+    container-runtime-endpoint: {{ kubelet_container_runtime_endpoint }}
