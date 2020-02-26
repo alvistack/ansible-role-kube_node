@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Upgrade minimal Molecule support to 3.0.2
   - Support both `docker` and `cri_o`
 
 ## 4.2.0 - 2020-02-17
