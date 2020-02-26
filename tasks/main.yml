@@ -68,9 +68,13 @@
     mode: "{{ item.mode | default('0644') }}"
   loop:
     - { dest: "/etc/kubernetes/kubeadm.conf" }
-  register: result
-  changed_when: result is not succeeded
-  ignore_errors: true
+  notify:
+    - kube_node | systemctl daemon-reload
+    - kube_node | systemctl restart
+  tags: kube_node
+
+- name: flush handlers
+  meta: flush_handlers
   tags: kube_node
 
 - name: prepare files
@@ -86,12 +90,9 @@
 
 - name: start services
   service:
-    name: "{{ item.name }}"
+    name: "kubelet"
     state: "started"
     enabled: true
-  loop:
-    - { name: "docker" }
-    - { name: "kubelet" }
   changed_when: false
   ignore_errors: true
   tags: kube_node
