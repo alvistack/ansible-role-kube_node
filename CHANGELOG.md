@@ -4,6 +4,8 @@
 
 ### Major Changes
 
+  - Support both `docker` and `cri_o`
+
 ## 4.2.0 - 2020-02-17
 
   - Ininitial release for Ansible 2.9 or higher
