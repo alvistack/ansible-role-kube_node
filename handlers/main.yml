@@ -13,20 +13,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-- name: kube_node | systemctl daemon-reload
-  systemd:
-    daemon_reload: true
-  changed_when: false
-  ignore_errors: true
-
-- name: kube_node | systemctl restart
-  service:
-    name: "kubelet"
-    state: "restarted"
-    enabled: true
-  loop: "{{ ansible_play_hosts }}"
-  delegate_to: "{{ item }}"
-  run_once: true
-  changed_when: false
-  ignore_errors: true
