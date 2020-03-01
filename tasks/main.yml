@@ -68,13 +68,8 @@
     mode: "{{ item.mode | default('0644') }}"
   loop:
     - { dest: "/etc/kubernetes/kubeadm.conf" }
-  notify:
-    - kube_node | systemctl daemon-reload
-    - kube_node | systemctl restart
-  tags: kube_node
-
-- name: flush handlers
-  meta: flush_handlers
+  register: result
+  changed_when: result is not succeeded
   tags: kube_node
 
 - name: prepare files
