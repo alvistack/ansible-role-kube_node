@@ -14,12 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-etcd_cert_file: "/etc/kubernetes/pki/etcd/server.crt"
-etcd_key_file: "/etc/kubernetes/pki/etcd/server.key"
-etcd_trusted_ca_file: "/etc/kubernetes/pki/etcd/ca.crt"
-etcd_peer_cert_file: "/etc/kubernetes/pki/etcd/peer.crt"
-etcd_peer_key_file: "/etc/kubernetes/pki/etcd/peer.key"
-etcd_peer_trusted_ca_file: "/etc/kubernetes/pki/etcd/ca.crt"
+etcd_cert_file: "/etc/etcd/pki/server.crt"
+etcd_key_file: "/etc/etcd/pki/server.key"
+etcd_trusted_ca_file: "/etc/etcd/pki/ca.crt"
+etcd_peer_cert_file: "/etc/etcd/pki/peer.crt"
+etcd_peer_key_file: "/etc/etcd/pki/peer.key"
+etcd_peer_trusted_ca_file: "/etc/etcd/pki/ca.crt"
 etcd_listen_peer_urls: "https://{{ ansible_eth1.ipv4.address }}:2380,https://127.0.0.1:2380"
 etcd_listen_client_urls: "https://{{ ansible_eth1.ipv4.address }}:2379,https://127.0.0.1:2379"
 etcd_initial_advertise_peer_urls: "https://{{ ansible_eth1.ipv4.address }}:2380"
