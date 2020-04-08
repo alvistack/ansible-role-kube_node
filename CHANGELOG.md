@@ -9,6 +9,7 @@
   - Consolidate molecule tests into `default` (noop)
   - Support both `docker` and `cri_o`
   - Support both `LocalEtcd` and `ExternalEtcd`
+  - Support CentOS/RHEL 8
 
 ## 4.2.0 - 2020-02-17
 
