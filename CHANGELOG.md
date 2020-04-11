@@ -4,12 +4,17 @@
 
 ### Major Changes
 
+  - Template `molecule -s default` with dummy docker driver
+  - Support CentOS/RHEL 8
+  - Support Ubuntu 20.04
+  - Remove Ubuntu 16.04 support
   - Upgrade minimal Molecule support to 3.0.2
+  - Migrate role name to lowercase or underline
+  - Migrate group name to lowercase or underline
   - Migrate molecule `group_vars` to file
-  - Consolidate molecule tests into `default` (noop)
+  - Split role as `kube_master` and `kube_node`
   - Support both `docker` and `cri_o`
   - Support both `LocalEtcd` and `ExternalEtcd`
-  - Support CentOS/RHEL 8
 
 ## 4.2.0 - 2020-02-17
 
