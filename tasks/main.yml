@@ -97,13 +97,12 @@
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
     set -o pipefail
-    kubectl get node {{ ansible_hostname }} || kubeadm join \
+    kubeadm join \
       --config=/etc/kubernetes/kubeadm.conf \
       --ignore-preflight-errors=all
   args:
     executable: "/bin/bash"
   register: result
-  until: result is succeeded
-  changed_when: result is not succeeded
+  changed_when: false
   ignore_errors: true
   tags: kube_node
