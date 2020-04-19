@@ -97,7 +97,7 @@
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
     set -o pipefail
-    kubeadm join \
+    kubectl get node {{ ansible_hostname }} || kubeadm join \
       --config=/etc/kubernetes/kubeadm.conf \
       --ignore-preflight-errors=all
   args:
