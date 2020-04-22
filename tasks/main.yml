@@ -83,7 +83,7 @@
     - { dest: "/etc/kubernetes/kubeadm.conf" }
   tags: kube_node
 
-- name: start services
+- name: systemctl start kubelet
   service:
     name: "kubelet"
     state: "started"
@@ -103,7 +103,6 @@
   args:
     executable: "/bin/bash"
   register: result
-  until: result is succeeded
-  changed_when: result is not succeeded
+  changed_when: false
   ignore_errors: true
   tags: kube_node
