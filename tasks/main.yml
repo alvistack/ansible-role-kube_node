@@ -83,9 +83,9 @@
     - { dest: "/etc/kubernetes/kubeadm.conf" }
   tags: kube_node
 
-- name: systemctl start kubelet
+- name: systemctl start kubelet.service
   service:
-    name: "kubelet"
+    name: "kubelet.service"
     state: "started"
     enabled: true
   changed_when: false
