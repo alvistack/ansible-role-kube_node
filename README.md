@@ -1,6 +1,6 @@
 # Ansible Role for Kubernetes Node
 
-[![Travis](https://img.shields.io/travis/com/alvistack/ansible-role-kube_node.svg)](https://travis-ci.com/alvistack/ansible-role-kube_node)
+[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-kube_node/master)](https://gitlab.com/alvistack/ansible-role-kube_node/-/pipelines)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-kube_node.svg)](https://github.com/alvistack/ansible-role-kube_node/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-kube_node.svg)](https://github.com/alvistack/ansible-role-kube_node/blob/node/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.kube_node-blue.svg)](https://galaxy.ansible.com/alvistack/kube_node)
