@@ -1,6 +1,6 @@
 # Ansible Role for Kubernetes Node
 
-[![Travis](https://img.shields.io/travis/com/alvistack/ansible-role-kube_node.svg)](https://travis-ci.com/alvistack/ansible-role-kube_node)
+[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-kube_node/master)](https://gitlab.com/alvistack/ansible-role-kube_node/-/pipelines)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-kube_node.svg)](https://github.com/alvistack/ansible-role-kube_node/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-kube_node.svg)](https://github.com/alvistack/ansible-role-kube_node/blob/node/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.kube_node-blue.svg)](https://galaxy.ansible.com/alvistack/kube_node)
@@ -13,11 +13,11 @@ This role require Ansible 2.10 or higher.
 
 This role was designed for:
 
-  - Ubuntu 18.04/20.04
+  - Ubuntu 18.04/20.04/20.10
   - RHEL/CentOS 7/8
   - openSUSE Leap 15.2
   - Debian 10
-  - Fedora 32
+  - Fedora 33
 
 ## Role Variables
 
