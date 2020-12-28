@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Kubernetes version.
-kubernetes_version: "v1.19.5"
+kubernetes_version: "v1.19.6"
 
 # Token is a token used to validate cluster information fetched from the control-plane.
 kubeadm_token: ~
