@@ -53,16 +53,6 @@
         - "."
       skip: true
 
-- name: prepare directories
-  file:
-    dest: "{{ item.dest }}"
-    owner: "{{ item.owner | default('root') }}"
-    group: "{{ item.group | default('root') }}"
-    mode: "{{ item.mode | default('0755') }}"
-    state: "{{ item.state | default('directory') }}"
-  loop:
-    - { dest: "/etc/kubernetes" }
-
 - name: base64 encode
   shell: |
     set -euxo pipefail
@@ -99,6 +89,16 @@
   until: kubeadm_token_result is succeeded
   changed_when: kubeadm_token_result is not succeeded
   failed_when: false
+
+- name: prepare directories
+  file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0755') }}"
+    state: "{{ item.state | default('directory') }}"
+  loop:
+    - { dest: "/etc/kubernetes" }
 
 - name: copy templates
   template:
