@@ -30,21 +30,9 @@ platforms:
       - "disk_driver :cache => 'writeback'"
       - "storage :file, bus: 'virtio', cache: 'writeback'"
     groups:
-      - kube_master
       - etcd
+      - kube_master
   - name: ${MOLECULE_INSTANCE_NAME}-2
-    box: alvistack/ubuntu-20.04
-    cpu: 2
-    memory: 8192
-    provider_raw_config_args:
-      - "disk_bus = 'virtio'"
-      - "nic_model_type = 'virtio'"
-      - "video_type = 'virtio'"
-      - "disk_driver :cache => 'writeback'"
-      - "storage :file, bus: 'virtio', cache: 'writeback'"
-    groups:
-      - kube_node
-  - name: ${MOLECULE_INSTANCE_NAME}-3
     box: alvistack/ubuntu-20.04
     cpu: 2
     memory: 8192
