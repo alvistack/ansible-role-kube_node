@@ -17,14 +17,23 @@
 # Kubernetes release.
 kubernetes_release: "v1.21"
 
-# Token is a token used to validate cluster information fetched from the control-plane.
+# Token is a token used to validate cluster information fetched from the
+# control-plane.
 kubeadm_token: ~
 
-# IP address of the node. If set, kubelet will use this IP address for the node.
+# IP address of the node. If set, kubelet will use this IP address for the
+# node.
 kubelet_node_ip: "{{ ansible_default_ipv4.address }}"
+
+# Driver that the kubelet uses to manipulate cgroups on the host (cgroupfs or
+# systemd).
+kubelet_cgroup_driver: "systemd"
 
 # Optional absolute name of cgroups to create and run the runtime in.
 kubelet_runtime_cgroups: "/systemd/system.slice"
+
+# Optional absolute name of cgroups to create and run the Kubelet in.
+kubelet_kubelet_cgroups: "{{ kubelet_runtime_cgroups }}"
 
 # The container runtime to use.
 kubelet_container_runtime: "remote"
