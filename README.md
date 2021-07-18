@@ -1,9 +1,13 @@
 # Ansible Role for Kubernetes Node
 
-[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-kube_node/master)](https://gitlab.com/alvistack/ansible-role-kube_node/-/pipelines)
-[![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-kube_node.svg)](https://github.com/alvistack/ansible-role-kube_node/releases)
-[![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-kube_node.svg)](https://github.com/alvistack/ansible-role-kube_node/blob/node/LICENSE)
-[![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.kube_node-blue.svg)](https://galaxy.ansible.com/alvistack/kube_node)
+[![Gitlab pipeline
+status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-kube_node/master)](https://gitlab.com/alvistack/ansible-role-kube_node/-/pipelines)
+[![GitHub
+release](https://img.shields.io/github/release/alvistack/ansible-role-kube_node.svg)](https://github.com/alvistack/ansible-role-kube_node/releases)
+[![GitHub
+license](https://img.shields.io/github/license/alvistack/ansible-role-kube_node.svg)](https://github.com/alvistack/ansible-role-kube_node/blob/node/LICENSE)
+[![Ansible
+Role](https://img.shields.io/badge/galaxy-alvistack.kube_node-blue.svg)](https://galaxy.ansible.com/alvistack/kube_node)
 
 Ansible Role for Kubernetes Node Installation.
 
@@ -39,7 +43,8 @@ This role could simply deploy to `localhost` as below:
 ## License
 
   - Code released under [Apache License 2.0](LICENSE)
-  - Docs released under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
+  - Docs released under [CC
+    BY 4.0](http://creativecommons.org/licenses/by/4.0/)
 
 ## Author Information
 
