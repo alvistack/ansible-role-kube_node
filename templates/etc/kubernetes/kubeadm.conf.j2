@@ -31,3 +31,10 @@ nodeRegistration:
     runtime-cgroups: {{ kubelet_runtime_cgroups }}
     container-runtime: {{ kubelet_container_runtime }}
     container-runtime-endpoint: {{ kubelet_container_runtime_endpoint }}
+
+---
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+cgroupDriver: {{ kubelet_cgroup_driver }}
+kubeletCgroups: {{ kubelet_kubelet_cgroups }}
+resolvConf: {{ kubelet_resolv_conf }}
