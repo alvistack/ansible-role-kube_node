@@ -19,22 +19,22 @@ kind: JoinConfiguration
 discovery:
   bootstrapToken:
     apiServerEndpoint: {{ kube_apiserver_endpoint }}
-    token: {{ kubeadm_token }}
+    token: {{ kube_kubeadm_token }}
     unsafeSkipCAVerification: true
-  tlsBootstrapToken: {{ kubeadm_token }}
+  tlsBootstrapToken: {{ kube_kubeadm_token }}
 nodeRegistration:
   name: {{ ansible_hostname }}
-  criSocket: {{ kubelet_container_runtime_endpoint }}
+  criSocket: {{ kube_kubelet_container_runtime_endpoint }}
   taints: []
   kubeletExtraArgs:
-    node-ip: {{ kubelet_node_ip }}
-    runtime-cgroups: {{ kubelet_runtime_cgroups }}
-    container-runtime: {{ kubelet_container_runtime }}
-    container-runtime-endpoint: {{ kubelet_container_runtime_endpoint }}
+    node-ip: {{ kube_kubelet_node_ip }}
+    runtime-cgroups: {{ kube_kubelet_runtime_cgroups }}
+    container-runtime: {{ kube_kubelet_container_runtime }}
+    container-runtime-endpoint: {{ kube_kubelet_container_runtime_endpoint }}
 
 ---
 apiVersion: kubelet.config.k8s.io/v1beta1
 kind: KubeletConfiguration
-cgroupDriver: {{ kubelet_cgroup_driver }}
-kubeletCgroups: {{ kubelet_kubelet_cgroups }}
-resolvConf: {{ kubelet_resolv_conf }}
+cgroupDriver: {{ kube_kubelet_cgroup_driver }}
+kubeletCgroups: {{ kube_kubelet_kubelet_cgroups }}
+resolvConf: {{ kube_kubelet_resolv_conf }}
