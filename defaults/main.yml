@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Kubernetes release.
-kubernetes_release: "1.21"
+kube_release: "1.21"
 
 # Token is a token used to validate cluster information fetched from the
 # control-plane.
