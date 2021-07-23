@@ -85,9 +85,9 @@
   args:
     executable: "/bin/bash"
   delegate_to: "{{ groups['kube_master'][0] }}"
-  register: kubeadm_token_result
-  until: kubeadm_token_result is succeeded
-  changed_when: kubeadm_token_result is not succeeded
+  register: kube_kubeadm_token_result
+  until: kube_kubeadm_token_result is succeeded
+  changed_when: kube_kubeadm_token_result is not succeeded
   failed_when: false
 
 - name: prepare directories
@@ -108,7 +108,7 @@
     group: "{{ item.group | default('root') }}"
     mode: "{{ item.mode | default('0644') }}"
   vars:
-    kubeadm_token: "{{ kubeadm_token_result.stdout }}"
+    kube_kubeadm_token: "{{ kube_kubeadm_token_result.stdout }}"
   loop:
     - { dest: "/etc/kubernetes/kubeadm.conf" }
   register: result

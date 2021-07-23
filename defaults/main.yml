@@ -15,35 +15,35 @@
 # limitations under the License.
 
 # Kubernetes release.
-kubernetes_release: "1.21"
+kube_release: "1.21"
 
 # Token is a token used to validate cluster information fetched from the
 # control-plane.
-kubeadm_token: ~
+kube_kubeadm_token: ~
 
 # IP address of the node. If set, kubelet will use this IP address for the
 # node.
-kubelet_node_ip: "{{ ansible_default_ipv4.address }}"
+kube_kubelet_node_ip: "{{ ansible_default_ipv4.address }}"
 
 # Driver that the kubelet uses to manipulate cgroups on the host (cgroupfs or
 # systemd).
-kubelet_cgroup_driver: "{{ _kubelet_cgroup_driver }}"
+kube_kubelet_cgroup_driver: "{{ _kube_kubelet_cgroup_driver }}"
 
 # Optional absolute name of cgroups to create and run the runtime in.
-kubelet_runtime_cgroups: "{{ _kubelet_runtime_cgroups }}"
+kube_kubelet_runtime_cgroups: "{{ _kube_kubelet_runtime_cgroups }}"
 
 # Optional absolute name of cgroups to create and run the Kubelet in.
-kubelet_kubelet_cgroups: "{{ kubelet_runtime_cgroups }}"
+kube_kubelet_kubelet_cgroups: "{{ kube_kubelet_runtime_cgroups }}"
 
 # The container runtime to use.
-kubelet_container_runtime: "remote"
+kube_kubelet_container_runtime: "remote"
 
 # The endpoint of remote runtime service.
-kubelet_container_runtime_endpoint: "unix:///var/run/crio/crio.sock"
+kube_kubelet_container_runtime_endpoint: "unix:///var/run/crio/crio.sock"
 
 # ResolverConfig is the resolver configuration file used as the basis
 # for the container DNS resolution configuration.
-kubelet_resolv_conf: "{{ _kubelet_resolv_conf }}"
+kube_kubelet_resolv_conf: "{{ _kube_kubelet_resolv_conf }}"
 
 # BindPort sets the secure port for the API Server to bind to.
 kube_apiserver_bind_port: "6443"
