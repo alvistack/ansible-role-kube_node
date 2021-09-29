@@ -77,8 +77,6 @@
   tags: kube_node
 
 - name: kubeadm token create
-  environment:
-    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
     set -euxo pipefail
     kubeadm token create
@@ -133,8 +131,6 @@
   failed_when: false
 
 - name: kubeadm join
-  environment:
-    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
     set -euxo pipefail
     kubeadm join \
