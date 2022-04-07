@@ -109,8 +109,8 @@
     kube_kubeadm_token: "{{ kube_kubeadm_token_result.stdout }}"
   loop:
     - { dest: "/etc/kubernetes/kubeadm.conf" }
-  register: result
-  changed_when: result is not succeeded
+  notify:
+    - kube_node | systemctl restart kubelet.service
 
 - name: prepare files
   ansible.builtin.file:
@@ -121,6 +121,8 @@
     state: "{{ item.state | default('file') }}"
   loop:
     - { dest: "/etc/kubernetes/kubeadm.conf" }
+  notify:
+    - kube_node | systemctl restart kubelet.service
 
 - name: systemctl start kubelet.service
   ansible.builtin.service:
@@ -139,5 +141,11 @@
   args:
     executable: "/bin/bash"
   register: result
-  changed_when: false
+  until: result is succeeded
+  changed_when: result is not succeeded
   failed_when: false
+  notify:
+    - kube_node | systemctl restart kubelet.service
+
+- name: flush handlers
+  ansible.builtin.meta: flush_handlers

@@ -14,13 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: kube_node | systemctl restart kubelet.service
-  ansible.builtin.service:
-    name: "kubelet.service"
-    state: "restarted"
-    enabled: true
-  loop: "{{ ansible_play_hosts }}"
-  delegate_to: "{{ item }}"
-  run_once: true
-  changed_when: false
-  failed_when: false
+_kube_release: "1.23"
+
+_kube_kubelet_cgroup_driver: "systemd"
+
+_kube_kubelet_runtime_cgroups: "/systemd/system.slice"
+
+_kube_kubelet_resolv_conf: "/etc/resolv.conf"
