@@ -146,5 +146,16 @@
   changed_when: false
   failed_when: false
 
+- name: kubeadm upgrade node
+  ansible.builtin.shell: |
+    set -euxo pipefail
+    kubeadm upgrade node \
+      --ignore-preflight-errors=all
+  args:
+    executable: "/bin/bash"
+  register: result
+  changed_when: false
+  failed_when: false
+
 - name: flush handlers
   ansible.builtin.meta: flush_handlers
