@@ -150,6 +150,7 @@
   ansible.builtin.shell: |
     set -euxo pipefail
     kubeadm upgrade node \
+      --force \
       --ignore-preflight-errors=all
   args:
     executable: "/bin/bash"
