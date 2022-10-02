@@ -54,9 +54,10 @@
       skip: true
 
 - name: base64 encode
-  ansible.builtin.shell: |
-    set -euxo pipefail
-    tar zcfP - {{ _params | join(' ') }} | base64 -w 0
+  ansible.builtin.shell:
+    cmd: |
+      set -euxo pipefail
+      tar zcfP - {{ _params | join(' ') }} | base64 -w 0
   vars:
     _params:
       - "/etc/kubernetes/admin.conf"
@@ -67,9 +68,10 @@
   changed_when: base64_encode_result is not succeeded
 
 - name: base64 decode
-  ansible.builtin.shell: |
-    set -euxo pipefail
-    echo -n {{ base64_encode_result.stdout | quote }} | base64 -d | tar zx -C /
+  ansible.builtin.shell:
+    cmd: |
+      set -euxo pipefail
+      echo -n {{ base64_encode_result.stdout | quote }} | base64 -d | tar zx -C /
   args:
     executable: "/bin/bash"
   register: base64_decode_result
@@ -77,9 +79,10 @@
   tags: kube_node
 
 - name: kubeadm token create
-  ansible.builtin.shell: |
-    set -euxo pipefail
-    kubeadm token create
+  ansible.builtin.shell:
+    cmd: |
+      set -euxo pipefail
+      kubeadm token create
   args:
     executable: "/bin/bash"
   delegate_to: "{{ groups['kube_master'][0] }}"
@@ -135,11 +138,12 @@
   failed_when: false
 
 - name: kubeadm join
-  ansible.builtin.shell: |
-    set -euxo pipefail
-    kubeadm join \
-      --config=/etc/kubernetes/kubeadm.conf \
-      --ignore-preflight-errors=all
+  ansible.builtin.shell:
+    cmd: |
+      set -euxo pipefail
+      kubeadm join \
+        --config=/etc/kubernetes/kubeadm.conf \
+        --ignore-preflight-errors=all
   args:
     executable: "/bin/bash"
   register: result
@@ -147,11 +151,12 @@
   failed_when: false
 
 - name: kubeadm upgrade node
-  ansible.builtin.shell: |
-    set -euxo pipefail
-    kubeadm upgrade node \
-      --force \
-      --ignore-preflight-errors=all
+  ansible.builtin.shell:
+    cmd: |
+      set -euxo pipefail
+      kubeadm upgrade node \
+        --force \
+        --ignore-preflight-errors=all
   args:
     executable: "/bin/bash"
   register: result
