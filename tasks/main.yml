@@ -82,7 +82,8 @@
   ansible.builtin.shell:
     cmd: |
       set -euxo pipefail
-      kubeadm token create
+      kubeadm token create \
+        --config=/etc/kubernetes/kubeadm.conf
   args:
     executable: "/bin/bash"
   delegate_to: "{{ groups['kube_master'][0] }}"
@@ -156,6 +157,8 @@
       set -euxo pipefail
       kubeadm upgrade node \
         --force \
+        --certificate-renewal=true \
+        --config=/etc/kubernetes/kubeadm.conf \
         --ignore-preflight-errors=all
   args:
     executable: "/bin/bash"
