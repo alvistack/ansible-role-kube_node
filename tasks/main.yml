@@ -76,7 +76,6 @@
     executable: "/bin/bash"
   register: base64_decode_result
   changed_when: base64_decode_result is not succeeded
-  tags: kube_node
 
 - name: kubeadm token create
   ansible.builtin.shell:
