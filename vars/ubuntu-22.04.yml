@@ -16,8 +16,8 @@
 
 _kube_release: "1.29"
 
-_kube_kubelet_cgroup_driver: "systemd"
+_kube_kubelet_cgroup_driver: systemd
 
-_kube_kubelet_runtime_cgroups: "/systemd/system.slice"
+_kube_kubelet_runtime_cgroups: /systemd/system.slice
 
-_kube_kubelet_resolv_conf: "/run/systemd/resolve/resolv.conf"
+_kube_kubelet_resolv_conf: /run/systemd/resolve/resolv.conf

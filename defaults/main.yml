@@ -19,8 +19,7 @@ kube_release: "{{ _kube_release }}"
 
 # Token is a token used to validate cluster information fetched from the
 # control-plane.
-kube_kubeadm_token: ~
-
+kube_kubeadm_token:
 # IP address of the node. If set, kubelet will use this IP address for the
 # node.
 kube_kubelet_node_ip: "{{ ansible_default_ipv4.address }}"
@@ -36,7 +35,7 @@ kube_kubelet_runtime_cgroups: "{{ _kube_kubelet_runtime_cgroups }}"
 kube_kubelet_kubelet_cgroups: "{{ kube_kubelet_runtime_cgroups }}"
 
 # The endpoint of remote runtime service.
-kube_kubelet_container_runtime_endpoint: "unix:///var/run/crio/crio.sock"
+kube_kubelet_container_runtime_endpoint: unix:///var/run/crio/crio.sock
 
 # ResolverConfig is the resolver configuration file used as the basis
 # for the container DNS resolution configuration.
