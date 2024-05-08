@@ -135,7 +135,7 @@
     state: "{{ item.state }}"
     sysctl_file: /etc/sysctl.conf
     reload: false
-  loop: "{{ kube_master_sysctl }}"
+  loop: "{{ kube_node_sysctl }}"
   notify:
     - kube_node | systemctl restart systemd-sysctl.service
 
