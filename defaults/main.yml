@@ -37,6 +37,9 @@ kube_kubelet_kubelet_cgroups: "{{ kube_kubelet_runtime_cgroups }}"
 # The endpoint of remote runtime service.
 kube_kubelet_container_runtime_endpoint: unix:///var/run/crio/crio.sock
 
+# maxPods is the number of pods that can run on this Kubelet.
+kube_kubelet_max_pods: "256"
+
 # ResolverConfig is the resolver configuration file used as the basis
 # for the container DNS resolution configuration.
 kube_kubelet_resolv_conf: "{{ _kube_kubelet_resolv_conf }}"
@@ -47,3 +50,7 @@ kube_apiserver_bind_port: "6443"
 # APIServerEndpoint is an IP or domain name to the API server from which info
 # will be fetched.
 kube_apiserver_endpoint: "{{ hostvars[groups['kube_master'][0]].ansible_default_ipv4.address }}:{{ kube_apiserver_bind_port }}"
+
+# Entries for sysctl.
+kube_node_sysctl:
+  - { state: present, name: fs.inotify.max_user_instances, value: "512" }
