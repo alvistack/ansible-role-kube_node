@@ -128,6 +128,17 @@
   notify:
     - kube_node | systemctl restart kubelet.service
 
+- name: tweak sysctl entries
+  ansible.posix.sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ item.state }}"
+    sysctl_file: /etc/sysctl.conf
+    reload: false
+  loop: "{{ kube_node_sysctl }}"
+  notify:
+    - kube_node | systemctl restart systemd-sysctl.service
+
 - name: systemctl start kubelet.service
   ansible.builtin.service:
     name: kubelet.service
