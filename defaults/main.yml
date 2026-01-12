@@ -22,7 +22,7 @@ kube_release: "{{ _kube_release }}"
 kube_kubeadm_token:
 # IP address of the node. If set, kubelet will use this IP address for the
 # node.
-kube_kubelet_node_ip: "{{ ansible_default_ipv4.address }}"
+kube_kubelet_node_ip: "{{ ansible_facts['default_ipv4'].address }}"
 
 # Driver that the kubelet uses to manipulate cgroups on the host (cgroupfs or
 # systemd).
@@ -49,7 +49,7 @@ kube_apiserver_bind_port: "6443"
 
 # APIServerEndpoint is an IP or domain name to the API server from which info
 # will be fetched.
-kube_apiserver_endpoint: "{{ hostvars[groups['kube_master'][0]].ansible_default_ipv4.address }}:{{ kube_apiserver_bind_port }}"
+kube_apiserver_endpoint: "{{ hostvars[groups['kube_master'][0]].ansible_facts['default_ipv4'].address }}:{{ kube_apiserver_bind_port }}"
 
 # Entries for sysctl.
 kube_node_sysctl:
