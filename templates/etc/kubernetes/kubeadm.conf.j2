@@ -23,7 +23,7 @@ discovery:
     unsafeSkipCAVerification: true
   tlsBootstrapToken: {{ kube_kubeadm_token }}
 nodeRegistration:
-  name: {{ ansible_hostname }}
+  name: {{ inventory_hostname }}
   criSocket: {{ kube_kubelet_container_runtime_endpoint }}
   taints: []
   kubeletExtraArgs:
