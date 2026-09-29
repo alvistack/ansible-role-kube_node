@@ -54,5 +54,5 @@ kube_apiserver_endpoint: "{{ hostvars[groups['kube_master'][0]].ansible_facts['d
 # Entries for sysctl.
 kube_node_sysctl:
   - { state: present, name: fs.inotify.max_queued_events, value: "32768" }
-  - { state: present, name: fs.inotify.max_user_instances, value: "256" }
+  - { state: present, name: fs.inotify.max_user_instances, value: "8192" }
   - { state: present, name: fs.inotify.max_user_watches, value: "524288" }
